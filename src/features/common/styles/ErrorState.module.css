@@ -1,0 +1,16 @@
+.error {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(245, 87, 108, 0.3);
+}
+
+.errorIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}

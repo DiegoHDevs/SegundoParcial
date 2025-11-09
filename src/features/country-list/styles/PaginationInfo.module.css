@@ -1,0 +1,13 @@
+.paginationInfo {
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .paginationInfo {
+    font-size: 0.9rem;
+  }
+}
