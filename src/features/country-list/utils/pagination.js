@@ -17,12 +17,12 @@ const PAGINATION_CONSTANTS = {
  * Calcula los índices para el slicing de elementos paginados
  * @param {number} currentPage - Página actual (1-indexed)
  * @param {number} itemsPerPage - Número de elementos por página
- * @returns {object} - Objeto con indexOfFirstItem y indexOfLastItem
+ * @returns {object} - Objeto con indexOfFirstCountry y indexOfLastCountry
  */
 export const getPaginationIndices = (currentPage, itemsPerPage) => {
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  return { indexOfFirstItem, indexOfLastItem };
+  const indexOfLastCountry = currentPage * itemsPerPage;
+  const indexOfFirstCountry = indexOfLastCountry - itemsPerPage;
+  return { indexOfFirstCountry, indexOfLastCountry };
 };
 
 /**
@@ -33,8 +33,8 @@ export const getPaginationIndices = (currentPage, itemsPerPage) => {
  * @returns {Array} - Elementos de la página actual
  */
 export const getCurrentPageItems = (items, currentPage, itemsPerPage) => {
-  const { indexOfFirstItem, indexOfLastItem } = getPaginationIndices(currentPage, itemsPerPage);
-  return items.slice(indexOfFirstItem, indexOfLastItem);
+  const { indexOfFirstCountry, indexOfLastCountry } = getPaginationIndices(currentPage, itemsPerPage);
+  return items.slice(indexOfFirstCountry, indexOfLastCountry);
 };
 
 /**
