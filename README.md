@@ -20,14 +20,23 @@ Una aplicación web interactiva construida con React para explorar información 
 ## ✨ Características
 
 - 🗺️ **Exploración de Países**: Visualiza una lista completa de todos los países del mundo
-- 🔍 **Búsqueda Detallada**: Accede a información detallada de cada país incluyendo:
+- 🔍 **Búsqueda en Tiempo Real**: 
+  - Barra de búsqueda integrada en el navbar (visible solo en la página principal)
+  - Búsqueda no exacta que filtra países mientras escribes
+  - Busca por nombre común u oficial del país
+  - Resultados instantáneos sin recargar la página
+  - Mensaje informativo cuando no hay coincidencias
+- 📊 **Información Detallada**: Accede a datos completos de cada país:
   - Capital, región y subregión
   - Población y área territorial
   - Idiomas oficiales
   - Moneda
   - Zona horaria
-  - Países limítrofes
-- 📄 **Paginación Inteligente**: Sistema de paginación optimizado para navegar entre países
+  - Países limítrofes (clickeables para navegación rápida)
+- 📄 **Paginación Inteligente**: 
+  - Sistema de paginación optimizado
+  - Se adapta automáticamente a los resultados de búsqueda
+  - Navegación entre páginas con indicadores visuales
 - 🎨 **Interfaz Moderna**: Diseño responsive con gradientes y animaciones
 - ⚡ **Rendimiento Optimizado**: Hooks personalizados y optimizaciones con React 19
 - 🔄 **Manejo de Estados**: Sistema robusto de loading, error y datos
@@ -157,6 +166,12 @@ SegundoParcial/
 │   │   │   ├── constants/           # Configuración de paginación
 │   │   │   ├── context/             # PaginationContext y Provider
 │   │   │   ├── hooks/               # usePagination
+│   │   │   ├── utils/               # Utilidades de paginación
+│   │   │   └── styles/              # CSS Modules
+│   │   ├── search/                  # Feature de búsqueda
+│   │   │   ├── components/          # SearchBar
+│   │   │   ├── context/             # SearchContext y Provider
+│   │   │   ├── hooks/               # useSearch
 │   │   │   └── styles/              # CSS Modules
 │   │   └── not-found/               # Página 404
 │   │       ├── components/          # ErrorDisplay
@@ -207,12 +222,40 @@ Hook para acceder al contexto de paginación:
 - Estado compartido sin prop drilling
 - Acciones: setPage, nextPage, prevPage, reset
 
+#### `useSearch`
+Hook para acceder al contexto de búsqueda:
+- Estado compartido del término de búsqueda
+- Acciones: setSearchTerm, clearSearch
+- Validación de uso dentro del SearchProvider
+
+### Features Implementados
+
+#### 🔍 Search Feature
+- **SearchBar**: Componente de búsqueda con input y botón de limpieza
+- **SearchContext**: Contexto para compartir el término de búsqueda
+- **useSearch**: Hook personalizado para acceder al estado de búsqueda
+- Búsqueda no exacta que filtra mientras el usuario escribe
+- Solo visible en la página principal (/)
+- Filtra países por nombre común u oficial
+
+#### 📊 Country List Feature
+- Lista paginada de países
+- Integración con búsqueda en tiempo real
+- Paginación que se adapta a resultados filtrados
+- Mensaje informativo cuando no hay resultados
+
+#### 📍 Country Detail Feature
+- Detalles completos de cada país
+- Navegación entre países limítrofes
+- Información organizada en cards
+
 ### Patrones de React Implementados
 
 - **useReducer**: Manejo de estado complejo en la paginación
-- **useContext**: Compartir estado entre componentes sin prop drilling
+- **useContext**: Compartir estado entre componentes (búsqueda y paginación)
 - **useCallback**: Optimización de funciones para prevenir re-renders
 - **useRef**: Mantener referencias estables y evitar dependencias circulares
+- **useMemo**: Optimización del filtrado de países
 - **CSS Modules**: Estilos con scope local
 
 ### Separación de Responsabilidades
