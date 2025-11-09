@@ -13,19 +13,21 @@ const ErrorDisplay = () => {
     <div className={styles.content}>
       {/* Código de error */}
       <div className={styles.errorCode}>{notFoundContent.errorCode}</div>
-      
+
       {/* Ícono decorativo */}
       <div className={styles.globe}>{notFoundContent.globe}</div>
-      
+
       {/* Título del error */}
       <h1 className={styles.title}>{notFoundContent.title}</h1>
-      
+
       {/* Mensaje descriptivo */}
       <p className={styles.message}>{notFoundContent.message}</p>
 
       {/* Sección de sugerencias */}
       <div className={styles.suggestions}>
-        <h3 className={styles.suggestionsTitle}>{notFoundContent.suggestionsTitle}</h3>
+        <h3 className={styles.suggestionsTitle}>
+          {notFoundContent.suggestionsTitle}
+        </h3>
         <div className={styles.suggestionsList}>
           <BackButton />
           <SuggestionLink to={ROUTES.ABOUT}>
@@ -33,9 +35,6 @@ const ErrorDisplay = () => {
           </SuggestionLink>
         </div>
       </div>
-
-      {/* Botón adicional para volver */}
-      <BackButton />
     </div>
   );
 };
